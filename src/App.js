@@ -1,18 +1,31 @@
 import React from "react";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import PageOne from './pages/PageOne'
+import PageTwo from './pages/PageTwo'
+import PageThree from './pages/PageThree'
 
 export default function App() {
   return (
     <React.Fragment>
-      <div id="page1">
-        <h1>Hello CodeSandbox</h1>
-        <h2>Start editing to see some magic happen!</h2>
-      </div>
-      <div id="page2">
-        <h1>Page 2</h1>
-      </div>
-      <div id="page3">
-        <h1>Page 3</h1>
-      </div>
+      <Router>
+        <ul>
+          <li>
+            <Link to='/'>Page 1</Link>
+          </li>
+          <li>
+            <Link to='/two'>Page 2</Link>
+          </li>
+          <li>
+            <Link to='/three'>Page 3</Link>
+          </li>
+        </ul>
+
+        <Routes>
+          <Route path="/" element={<PageOne />} />
+          <Route path="/two" element={<PageTwo />} />
+          <Route path="/three" element={<PageThree />} />
+        </Routes>
+      </Router>
     </React.Fragment>
   );
 }
